@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+sessions/
+database/user-settings/
+*.log
+npm-debug.log*
+.DS_Store

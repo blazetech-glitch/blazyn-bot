@@ -1,0 +1,14 @@
+{
+  "name": "blazyn-bot",
+  "version": "1.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node --check index.js && node --check case.js && node --check settings.js && node --check helper/function.js"
+  },
+  "dependencies": {
+    "@trashcore/baileys": "latest",
+    "telegraf": "^4.16.3",
+    "pino": "^8.21.0"
+  }
+}
