@@ -1,0 +1,53 @@
+{
+  "name": "Blazyn Bot",
+  "description": "Blazyn WhatsApp multi-session bot for Blaze Tech.",
+  "repository": "https://github.com/blazetech-glitch/blazyn-bot",
+  "keywords": [
+    "whatsapp",
+    "telegram",
+    "baileys",
+    "blaze-tech",
+    "bot"
+  ],
+  "stack": "heroku-24",
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "Telegram bot token from @BotFather. Keep this value private.",
+      "required": true
+    },
+    "TELEGRAM_OWNER_ID": {
+      "description": "Numeric Telegram user ID allowed to use owner-only Telegram commands.",
+      "required": false
+    },
+    "REPORT_CHAT_ID": {
+      "description": "Optional numeric Telegram chat ID that receives issue reports.",
+      "required": false
+    },
+    "OWNER_NAME": {
+      "description": "Public owner name shown by the bot.",
+      "value": "ARNOLDT20",
+      "required": true
+    },
+    "OWNER_NUMBER": {
+      "description": "Default WhatsApp owner number in international format.",
+      "value": "255627417402",
+      "required": true
+    },
+    "OWNER_HANDLE": {
+      "description": "Public Telegram owner handle.",
+      "value": "@StarboyT20",
+      "required": true
+    },
+    "BOT_NAME": {
+      "description": "Bot display name.",
+      "value": "Blazyn",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}

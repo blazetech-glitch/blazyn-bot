@@ -1,0 +1,32 @@
+services:
+  - type: worker
+    name: blazyn-bot
+    runtime: node
+    plan: starter
+    region: frankfurt
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeployTrigger: off
+    disk:
+      name: blazyn-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_OWNER_ID
+        sync: false
+      - key: REPORT_CHAT_ID
+        sync: false
+      - key: OWNER_NAME
+        value: ARNOLDT20
+      - key: OWNER_NUMBER
+        value: 255627417402
+      - key: OWNER_HANDLE
+        value: '@StarboyT20'
+      - key: BOT_NAME
+        value: Blazyn
+      - key: SESSIONS_DIR
+        value: /var/data/sessions
+      - key: PREMIUM_DB
+        value: /var/data/premium.json

@@ -4,6 +4,8 @@
 
 > Official channel: [꧁༺ 𝐁𝐋𝐀𝐙𝐄 𝐓𝐄𝐂𝐇 ༻꧂ on WhatsApp](https://whatsapp.com/channel/0029VbAjawl9MF8vQQa0ZT32)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/blazetech-glitch/blazyn-bot) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/blazetech-glitch/blazyn-bot)
+
 ## Features
 
 Blazyn provides Telegram commands for pairing WhatsApp numbers, restoring sessions, deleting sessions, listing sessions for the configured Telegram owner, and reporting issues. On WhatsApp, it dispatches prefixed commands, supports owner and group-admin permissions, maintains per-session settings, provides menu and utility commands, and includes optional anti-delete, anti-link, premium, media, and group-management functionality already present in the codebase.
@@ -63,6 +65,18 @@ npm run check
 ## Asset organization
 
 The supplied images are stored in `assets/` with descriptive names: `blazyn-mask.jpeg`, `blazyn-portrait.jpeg`, `blazyn-joker.jpeg`, and `blazyn-ninja.jpeg`. The default menu uses `blazyn-mask.jpeg`; the other images are retained as branded alternatives for future menu or status features.
+
+## Cloud deployment
+
+### Render
+
+Click the **Deploy to Render** button above and select the repository. Render reads `render.yaml` and creates Blazyn as a background worker. Enter `TELEGRAM_TOKEN`, `TELEGRAM_OWNER_ID`, and `REPORT_CHAT_ID` in the Render dashboard when prompted. The Blueprint uses a persistent disk for WhatsApp authentication and session data. Background workers require a paid Render service plan; the repository intentionally does not claim that this worker can run on Render’s free service tier.
+
+### Heroku
+
+Click the **Deploy to Heroku** button above. Heroku reads `app.json`, creates a worker process from `Procfile`, and asks for the required `TELEGRAM_TOKEN`. Set the optional numeric owner and report chat IDs in the Heroku Config Vars panel. Heroku dyno filesystems are ephemeral, so WhatsApp session files can be lost after a dyno replacement; use Render with its persistent disk or an external backup strategy when session persistence matters.
+
+Neither deployment platform can answer the interactive token prompt because they run without an interactive terminal. The prompt is for local use; hosted deployments use the platform’s secret/config-variable panel instead.
 
 ## Security and release notes
 
