@@ -2,7 +2,7 @@
 
 ## 1. Process startup
 
-Node loads `settings.js`, creates the sessions and database directories, initializes the Telegram client, and reloads every existing WhatsApp session found under `sessions/`. Each saved session reconnects independently. If a connection closes unexpectedly, the session is retried; if WhatsApp reports a logout, the Telegram owner is notified and the session can be paired again.
+`npm start` or `./run-local.sh` first prompts for the Telegram bot token with hidden terminal input when `TELEGRAM_TOKEN` is not already present in the process environment. The token is held in memory for that process and is not written to `.env` or GitHub. Node then loads `settings.js`, creates the sessions and database directories, initializes the Telegram client, and reloads every existing WhatsApp session found under `sessions/`. Each saved session reconnects independently. If a connection closes unexpectedly, the session is retried; if WhatsApp reports a logout, the Telegram owner is notified and the session can be paired again.
 
 ## 2. Telegram control flow
 

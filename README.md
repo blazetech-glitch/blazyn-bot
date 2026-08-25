@@ -16,16 +16,21 @@ Use Node.js 18 or newer and npm. A Telegram bot token is required. WhatsApp pair
 
 ```bash
 npm install
-cp .env.example .env
 ```
 
-Edit `.env` and set `TELEGRAM_TOKEN`. Set `TELEGRAM_OWNER_ID` to the numeric Telegram ID of the owner if owner-only Telegram commands are required. The public owner handle is configured as `@StarboyT20`; Telegram usernames are for display and discovery, while numeric IDs are used for authorization.
-
-Start the bot with:
+By default, start the bot interactively. It prompts for the Telegram token with hidden terminal input, keeps the token only in the running process, and does not write it to disk:
 
 ```bash
 npm start
 ```
+
+For a detached local run with logs, use:
+
+```bash
+./run-local.sh
+```
+
+For non-interactive deployments only, you may set `TELEGRAM_TOKEN` in a private local `.env`. Never commit `.env` or paste its contents into GitHub. Set `TELEGRAM_OWNER_ID` to the numeric Telegram ID of the owner if owner-only Telegram commands are required. The public owner handle is configured as `@StarboyT20`; Telegram usernames are for display and discovery, while numeric IDs are used for authorization.
 
 Run the syntax check before publishing changes:
 
